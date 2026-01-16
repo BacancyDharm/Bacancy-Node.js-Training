@@ -46,12 +46,15 @@ let calculateTotalPrice = function(price, quantity){
 // Assignment 5: Coupon Discount Function
 
 let applyCoupon = function(amount, couponCode){
-    switch(couponCode){
-        case "SAVE10":
-            return amount - (amount * 0.1);
-        case "SAVE20":
-            return amount - (amount * 0.2);
-        case "NONE":
-            return amount;
+    let code = couponCode.slice(0,4);
+    let discountPercentage = couponCode.slice(4);
+    let finalAmount;
+
+    if(code != 'SAVE') return 'No Discount'
+    else{
+        discountPercentage = parseInt(discountPercentage)
+        finalAmount = amount - (amount * discountPercentage / 100);
+        return finalAmount;
     }
 }
+
