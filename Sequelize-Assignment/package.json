@@ -1,0 +1,16 @@
+{
+  "name": "sequelize-assignment",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@sequelize/postgres": "^7.0.0-alpha.48",
+    "express": "^5.2.1"
+  }
+}
