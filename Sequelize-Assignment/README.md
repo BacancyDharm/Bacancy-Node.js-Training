@@ -1,6 +1,3 @@
-# Task
-Initialize an Express.js server with TypeScript, configure PostgreSQL using Sequelize, define models with associations, set up migrations, implement JWT-based authentication and authorization, build repository and service layers, create RESTful CRUD APIs for users and products with proper error handling and standardized responses, and document setup and usage in a README.
-
 # sequelize-assignment
 
 To install dependencies:
