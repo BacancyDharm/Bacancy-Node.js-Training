@@ -1,4 +1,5 @@
-import { Model, DataTypes } from "sequelize"
+import { Model , DataTypes } from "sequelize"
+
 import sequelize from "../config/database"
 
 export class User extends Model{
@@ -7,6 +8,7 @@ export class User extends Model{
     public email!: string
     public password!: string
     public readonly createdAt!: Date
+    public readonly updatedAt!: Date
 }
 
 User.init({
