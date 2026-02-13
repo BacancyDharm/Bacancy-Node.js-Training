@@ -1,17 +1,17 @@
 import express from "express";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 import sequelize from "./config/database";
-import userRoutes from './routes/user.route';
-import productRoutes from './routes/product.route';
+import userRoutes from "./routes/user.route";
+import productRoutes from "./routes/product.route";
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-app.use('/users', userRoutes);
-app.use('/products', productRoutes);
-app.get('/', (req, res) => res.send('Hello World!'))
+app.use("/users", userRoutes);
+app.use("/products", productRoutes);
+app.get("/", (req, res) => res.send("Hello World!"));
 
 const port = process.env.PORT || 3000;
 

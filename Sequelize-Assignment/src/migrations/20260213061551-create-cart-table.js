@@ -1,5 +1,7 @@
 'use strict';
 
+const sequelize = require('sequelize');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -9,24 +11,37 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable('Products',{
-      id: {
+    await queryInterface.createTable('Carts', {
+    id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      name: {
-        type: Sequelize.STRING,
-        allowNull: false
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "Users",
+          key: "id"
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE"
       },
-      description: {
-        type: Sequelize.TEXT,
-        allowNull: false
+      productId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "Products",
+          key: "id"
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE"
       },
-      price: {
-        type: Sequelize.FLOAT,
-        allowNull: false
+      quantity: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
+
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false
@@ -34,8 +49,8 @@ module.exports = {
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: false
-      }
-    })
+      }  
+    });
   },
 
   async down (queryInterface, Sequelize) {
@@ -45,6 +60,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('Products');
+    await queryInterface.dropTable('Carts');
   }
 };
